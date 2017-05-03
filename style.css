@@ -1,4 +1,27 @@
     button, div, form, input {
       margin: 10px;
+
     }
-  
+  #button-id {
+    text-transform: uppercase;
+}
+
+label {
+margin-left: 35px;
+}
+
+#add-animal {
+	margin-left: 20px;
+	margin-bottom: 20px;
+}
+.form-control {
+	width: 25%;
+
+}
+#gifs-appear-here {
+	background-color: black;
+}
+
+p {
+	color: white;
+}

@@ -20,21 +20,26 @@
     <h1>Animal GIFs</h1>
 
     <!-- Animal button will render will display under dvi-->
+    <nav class="navbar navbar-default navbar-fixed-top">
+
     <div id="animal-view"></div>
-    
-    <form id="animal-form">
-      <label for="animal-input">Add an Animal</label>
-      <input type="text" id="animal-input">
-      <br>
+
+<div class="form-group row">
+  <label for="animal-input" class="col-2 col-form-label">Add an Animal name</label>
+  <div class="col-10">
+    <input class="form-control" type="text" id="animal-input">
+  </div>
+</div>
 
       <!-- Button to add user input -->
       <input id = "add-animal" type="submit" class="btn btn-info" value="Submit">
      </form>
 
-
+</nav>
   </div>
      <!-- Animal GIFs will display here -->
      <div id="gifs-appear-here">
+     
       <script src="./giftastic.js"></script>
      
 </body>
