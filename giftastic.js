@@ -6,7 +6,7 @@ var animalName = "";
 
 function animalGif() {
     //clear gifs-appear-here area
-    $('.gifs-appear-here').empty();
+    $('#gifs-appear-here').empty();
 
     //save input value in variable
     var animal = $(this).attr("data-name");
@@ -139,4 +139,5 @@ $("#add-animal").on("click", function(event) {
 //clean up animal view and called displayButton call
  
 $("#animal-view").empty();
+ 
 displayButton();
