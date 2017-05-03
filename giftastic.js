@@ -48,33 +48,46 @@ function displayButton() {
 
     // Delete the content inside the animal-view div
      $("#animal-view").empty();
-    //create button
-
-    var addButton = $("<button>");
-    //add class to button
     
-   
-   //add text value to button
-    
-   
-    //append button
-    
-    //add attr to button data-name
+      //Loop the array animals list and generate button
+     for (var i = 0; i < animals.length; i++) {
+      console.log("animals: "+ animal[i]);
+
+          //create button
+
+          var addButton = $("<button>");
+          //add class to button
+          addButton.addClass('item');
+         
+         //add text value to button
+          addButton.text(animals[i]);
+         
+          //append button
+          $("#animal-view").append(addButton);
+
+          //add attr to button data-name
+          animalName = addButton.text();
+          addButton.attr("data-name", animalName);
+      }
+}
+      // on click function to get input value
+      $("#add-animal").on("click", function(event) {
 
 
-// on click function to get input value
+      //set varialbe for input value
+      var addAnimal = $("#animal-input").val();
+      console.log("my animal: "+ addAnimal);
 
-//set varialbe for input value
+      //add input value to array
+      animals.push(addAnimal);
 
-
-//add input value to array
-
-
-//call displayButton function to render button
- 
+      //call displayButton function to render button
+      displayButton();
+       
+      });
 //on click function for pause and play
 
 
-}:
+
 //clean up animal view and called displayButton call
 
