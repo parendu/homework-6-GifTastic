@@ -6,41 +6,62 @@ var animalName = " ";
 
 function animalGif() {
 //clear gifs-appear-here area
-
-//save input value 
-
+ $('.gifs-appear-here').empty();
+//save input value in variable
+var animal = $(this).attr("data-name");
+  console.log(animal);
 //create queryurl for ajax call with apiKey
-
+var queryURL = "http://api.giphy.com/v1/gifs/search?q="+ animal + "&api_key=dc6zaTOxFJmzC&limit=10 ";
 //Call ajax function
+$.ajax({
+              url: queryURL,
+              method: "GET"
+             }).done(function(response) {
+//set animal-view att animal
+console.log(response);
+              $("#animal-view").attr(animal);
+
+//set results with resopnse data
+var results = response.data;
+                 console.log(results);
 
 //for each resonse value
-
+for (var i = 0; i < results.length; i++) {
 //create div class item
+var gifDiv = $("<div class='item'>");
 
-// get rating
+// get rating, if rating is not r and pg-13 display GIFs
 
+if (results[i].rating !== "r" && results[i].rating !== "pg-13") {
+
+                         var rating = results[i].rating;
 // set varialbe p and display Rating on page
+ var p = $("<p>").text("Rating: " + rating);
+ console.log(P);
+}
 
-//if rating is not r and pg-13 display GIFs
-
-
-//create img element
-
+//create img element var animalImage
+var animalImage = $("<img>");
 //add class animal-image
-
+animalImage.addClass ('animal-image');
 //get src url
-
 //set still url attr
-
 //set animate url attr 
-
 //set data-state attr 
+animalImage.attr("src", results[i].images.fixed_height.url);
+                     animalImage.attr( "data-still",response.data[i].images.fixed_width_still.url);
+                     animalImage.attr( "data-animate",response.data[i].images.fixed_width.url);
+                     animalImage.attr( "data-state", "still" );
 
 //prepend rating p to gifDiv
 
 //prepend animalImage to gifDiv
+  gifDiv.prepend(p);
+                     gifDiv.prepend(animalImage);
 
-
+                     $("#gifs-appear-here").prepend(gifDiv);
+   }
+ });
 };
 //Create function to render
 
